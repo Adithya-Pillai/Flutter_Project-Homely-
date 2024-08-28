@@ -1,0 +1,1 @@
+ C:\\Users\\adhip\\OneDrive\\Desktop\\Adhi\ Coding\\flutter_application_1\ -\ Copy\\.dart_tool\\flutter_build\\2f27c97dcc20606b30ea17bb8fe63b7e\\native_assets.yaml: 

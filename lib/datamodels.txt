@@ -1,0 +1,375 @@
+final Map<String, dynamic> kitchenData = {
+  'kitchens': {
+      'name': 'Reddy\'s Kitchen',
+      'email': 'reddyskitchen@example.com',
+      'password': 'securePassword123',
+      'phone_number': '+1234567890',
+      'rating': 4.79,
+      'subtitle':'Dosa - Full Meals - Chappati - North Meals'
+      'kitchenimage': 'assets/images/kitchens/reddys_kitchen.jpg',
+      'bio': 'Enjoy the finest, most aromatic biryanis, made with premium spices and ingredients. Every bite is a flavorful journey. Order Now for a taste experience like no other!',
+      'address': '123, Example Street, Bangalore',
+      'ongoing_orders': [
+        {
+          'order_id': 'order123',
+          'status': 'ongoing',
+          'items': [
+            {'item_name': 'Pizza', 'quantity': 2},
+            {'item_name': 'Salad', 'quantity': 1},
+          ],
+          'imageUrl': 'assets/images/Home/idli.png',
+          'customer-name': 'Adhi',
+          'price': '540',
+          'date': '2024-07-18',
+          'button1Text': 'Prepared',
+          'button2Text': 'Cancel',
+        },
+      ],
+      'order_history': [
+        {
+          'order_id': 'order122',
+          'status': 'finished',
+          'items': [
+            {'item_name': 'Pizza', 'quantity': 2},
+            {'item_name': 'Salad', 'quantity': 1},
+          ],
+          'imageUrl': 'assets/images/restr/chef.jpg',
+          'customer-name': 'Adhi',
+          'price': '540',
+          'date': '2024-07-17',
+          'button1Text': 'Message',
+          'button2Text': 'Bill',
+        },
+      ],
+      'notifications': [
+        {
+          'type': 'order_update',
+          'message': 'Someone has placed an order!',
+        },
+      ],
+      'messages': [
+        {
+          'sender': 'support',
+          'message': 'How can we help you?',
+          'time': '10:30 AM',
+          'avatarImagePath': 'assets/images/support_avatar.png',
+        },
+      ],
+      'items': [
+        {
+          'item_id': 'item1',
+          'name': 'Hyderabadi Biryani',
+          'price': '540',
+          'category_id': 'North Indian',
+          'description':'High Spice',
+          'quantity':3,
+          'image_item': 'assets/images/restr/hyderabadi_biryani.jpg'
+        },
+        {
+          'item_id': 'item2',
+          'name': 'Dum Biryani',
+          'price': '200',
+          'category_id': 'North Indian',
+          'description':'Medium Spice',
+          'quantity':5,
+          'image_item': 'assets/images/restr/dum_biryani.jpg'
+        },
+      ],
+    },
+  };
+final Map<String, dynamic> categoryData = {
+'categories': {
+    'North Indian': {
+      'description': 'Explore all the delicacies of the north',
+      'image': 'assets/images/Home/meals.png',
+    },
+     'South Indian': {
+      'description': 'Explore all the delicacies of the south',
+      'image': 'assets/images/Home/idli.png',
+    },
+     'Sweets': {
+      'description': 'Mouth Watering Sweets',
+      'image': 'assets/images/Home/sweets.png',
+    },
+     'Snacks': {
+      'description': 'Snacks made from home',
+      'image': 'assets/images/Home/Samosa.jpg',
+    },
+      'Beverages': {
+      'description': 'Home-made Beverages',
+      'image': 'assets/images/Home/Lassi.jpg',
+    },
+  },
+}
+
+
+  void uploadCategoryData() async {
+    try {
+      await DatabaseService()
+          .categoriesCollection
+          .doc('categoryData')
+          .set(categoryData);
+      print('Category data uploaded successfully');
+    } catch (e) {
+      print('Failed to upload category data: $e');
+    }
+  }
+
+  
+  final Map<String, dynamic> userData = {
+    'name': 'John Doe',
+    'email': 'john.doe@example.com',
+    'password': 'securePassword123',
+    'phone_number': '1234567890',
+    'avatarurl': 'assets/images/Home/sharath.png',
+    'bio': '',
+    'addresses': [
+      {
+        'type': 'Home',
+        'address': 'Namma Mane, Basavanagudi, Bangalore',
+      },
+      {
+        'type': 'Work',
+        'address': 'BMS College of Engineering, Basavanagudi, Bangalore',
+      },
+    ],
+    'ongoing_orders': [
+      {
+        'order_id': 'order123',
+        'status': 'ongoing',
+        'items': [
+          {'item_name': 'Pizza', 'quantity': 2},
+          {'item_name': 'Salad', 'quantity': 1},
+        ],
+        'imageUrl': 'assets/images/Home/idli.png',
+        'kitchen_name': 'Best Pizza Place',
+        'price': '\$20',
+        'date': '',
+        'button1Text': 'Track',
+        'button2Text': 'Cancel',
+      },
+      {
+        'order_id': 'order124',
+        'status': 'ongoing',
+        'items': [
+          {'item_name': 'Pizza', 'quantity': 5},
+          {'item_name': 'Salad', 'quantity': 1},
+        ],
+        'imageUrl': 'assets/images/Home/idli.png',
+        'kitchen_name': 'Best Pizza Place',
+        'price': '\$20',
+        'date': '',
+        'button1Text': 'Track',
+        'button2Text': 'Cancel',
+      },
+    ],
+    'order_history': [
+      {
+        'order_id': 'order122',
+        'status': 'finished',
+        'items': [
+          {'item_name': 'Pizza', 'quantity': 2},
+          {'item_name': 'Salad', 'quantity': 1},
+        ],
+        'imageUrl': 'assets/images/Home/idli.png',
+        'kitchen_name': 'Best Pizza Place',
+        'price': '\$20',
+        'date': '',
+        'button1Text': 'Rate',
+        'button2Text': 'Re-order',
+      },
+    ],
+    'notifications': [
+      {
+        'type': 'order_update',
+        'message': 'Your order is on the way!',
+      },
+    ],
+    'messages': [
+      {
+        'sender': 'support',
+        'message': 'How can we help you?',
+        'time': '10:30 AM',
+        'avatarImagePath': 'assets/images/support_avatar.png',
+      },
+    ],
+    'most_ordered_kitchen': [
+      {
+        'kitchen_name': 'Sharaths Kitchen',
+        'order_count': 5,
+      },
+      {
+        'kitchen_name': 'Chechis Chaikada',
+        'order_count': 3,
+      },
+    ],
+  };
+
+  final Map<String, dynamic> kitchenData = {
+    'name': 'Sharath Kitchen',
+    'email': 'reddyskitchen@example.com',
+    'password': 'securePassword123',
+    'phone_number': '+1234567890',
+    'rating': 5.0,
+    'subtitle': 'Dosa - Full Meals - Chappati - North Meals',
+    'kitchenimage': 'assets/images/Home/sharath.png',
+    'bio':
+        'Enjoy the finest, most aromatic biryanis, made with premium spices and ingredients. Every bite is a flavorful journey. Order Now for a taste experience like no other!',
+    'address': '123, Example Street, Bangalore',
+    'ongoing_orders': [
+      {
+        'order_id': 'order123',
+        'status': 'ongoing',
+        'items': [
+          {'item_name': 'Pizza', 'quantity': 2},
+          {'item_name': 'Salad', 'quantity': 1},
+        ],
+        'imageUrl': 'assets/images/Home/idli.png',
+        'customer-name': 'Adhi',
+        'price': '540',
+        'date': '2024-07-18',
+        'button1Text': 'Prepared',
+        'button2Text': 'Cancel',
+      },
+    ],
+    'order_history': [
+      {
+        'order_id': 'order122',
+        'status': 'finished',
+        'items': [
+          {'item_name': 'Pizza', 'quantity': 2},
+          {'item_name': 'Salad', 'quantity': 1},
+        ],
+        'imageUrl': 'assets/images/restr/chef.jpg',
+        'customer-name': 'Adhi',
+        'price': '540',
+        'date': '2024-07-17',
+        'button1Text': 'Message',
+        'button2Text': 'Bill',
+      },
+    ],
+    'notifications': [
+      {
+        'type': 'order_update',
+        'message': 'Someone has placed an order!',
+      },
+    ],
+    'messages': [
+      {
+        'sender': 'support',
+        'message': 'How can we help you?',
+        'time': '10:30 AM',
+        'avatarImagePath': 'assets/images/support_avatar.png',
+      },
+    ],
+    'items': [
+      {
+        'item_id': 'item1',
+        'name': 'Hyderabadi Biryani',
+        'price': '540',
+        'category_id': 'South Indian',
+        'description': 'High Spice',
+        'quantity': 3,
+        'image_item': 'assets/images/restr/hyderabadi_biryani.jpg'
+      },
+      {
+        'item_id': 'item2',
+        'name': 'Dum Biryani',
+        'price': '200',
+        'category_id': 'North Indian',
+        'description': 'Medium Spice',
+        'quantity': 5,
+        'image_item': 'assets/images/restr/dum_biryani.jpg'
+      },
+      {
+        'item_id': 'item4',
+        'name': 'Palak Paneer',
+        'price': '220',
+        'category_id': 'North Indian',
+        'description': 'Medium Spice',
+        'quantity': 5,
+        'image_item': 'assets/images/Home/paneer.jpg'
+      },
+      {
+        'item_id': 'item3',
+        'name': 'Idli',
+        'price': '200',
+        'category_id': 'South Indian',
+        'description': 'Low Spice',
+        'quantity': 5,
+        'image_item': 'assets/images/Home/idli.png'
+      },
+    ],
+  };
+
+  try {
+                      await databaseService.updateUserData(
+                        uid,
+                        name: userData['name'],
+                        email: userData['email'],
+                        password: userData['password'],
+                        phoneNumber: userData['phone_number'],
+                        avatarurl: userData['avatarurl'],
+                        bio: userData['bio'],
+                        addresses: (userData['addresses'] as List<dynamic>?)
+                            ?.map((addr) => addr as Map<String, dynamic>)
+                            .toList(),
+                        ongoingOrders:
+                            (userData['ongoing_orders'] as List<dynamic>?)
+                                ?.map((order) => order as Map<String, dynamic>)
+                                .toList(),
+                        orderHistory: (userData['order_history']
+                                as List<dynamic>?)
+                            ?.map((history) => history as Map<String, dynamic>)
+                            .toList(),
+                        notifications:
+                            (userData['notifications'] as List<dynamic>?)
+                                ?.map((notification) =>
+                                    notification as Map<String, dynamic>)
+                                .toList(),
+                        messages: (userData['messages'] as List<dynamic>?)
+                            ?.map((message) => message as Map<String, dynamic>)
+                            .toList(),
+                        mostOrderedItems:
+                            (userData['most_ordered_items'] as List<dynamic>?)
+                                ?.map((item) => item as Map<String, dynamic>)
+                                .toList(),
+                      );
+                      print('User data updated successfully');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => LocationAccessWidget()),
+                      );
+                    } catch (e) {
+                      print('Error updating user data: $e');
+                    }
+
+                    try {
+                      await databaseService.updateKitchenData(
+                        kid,
+                        name: kitchenData['name'],
+                        email: kitchenData['email'],
+                        password: kitchenData['password'],
+                        phoneNumber: kitchenData['phone_number'],
+                        rating: kitchenData['rating'],
+                        subtitle: kitchenData['subtitle'],
+                        kitchenimage: kitchenData['kitchenimage'],
+                        bio: kitchenData['bio'],
+                        address: kitchenData['address'],
+                        ongoingOrders: List<Map<String, dynamic>>.from(
+                            kitchenData['ongoing_orders'] ?? []),
+                        orderHistory: List<Map<String, dynamic>>.from(
+                            kitchenData['order_history'] ?? []),
+                        notifications: List<Map<String, dynamic>>.from(
+                            kitchenData['notifications'] ?? []),
+                        messages: List<Map<String, dynamic>>.from(
+                            kitchenData['messages'] ?? []),
+                        items: List<Map<String, dynamic>>.from(
+                            kitchenData['items'] ?? []),
+                      );
+
+                      print('Kitchen data updated successfully');
+                    } catch (e) {
+                      print('Error updating kitchen data: $e');
+                    }
